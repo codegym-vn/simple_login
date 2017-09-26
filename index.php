@@ -19,7 +19,8 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $username = $_POST["username"];
             $password = trim($_POST["password"]);
-            if (!empty($username) && $username == "admin" && $password == "admin") {
+
+            if ($username === "admin" && $password === "admin") {
                 echo "<h2>Welcome <span style='color:red'>" .$username. "</span> to website</h2>";
             }
             else{
@@ -27,7 +28,7 @@
             }
         }
         ?>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+        <form method="post">
             <div class="login">
                 <h2>Login</h2>
                 <input type="text" name="username" size="30"  placeholder="username" />
